@@ -3,6 +3,6 @@
 	"version": "0.1.0",
 	"scripts": {
 		"dev": "pnpm --filter hono dev & pnpm --filter express dev",
-		"curl": "curl localhost:8001/api/registry/remote/env & curl localhost:8000/api/registry/remote/env"
+		"curl": "bash -c 'diff <(curl -s localhost:8001/api/registry/remote/env | jq .) <(curl -s localhost:8000/api/registry/remote/env | jq .)'"
 	}
 }
